@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "product": "T-Shirt Bra",
+    "productType": "bras",
+    "price": 55,
+    "color": "Mulberry",
+    "size": "36D",
+    "imageSrc": "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg",
+    "imageAlt": "Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.",
+    "href": ""
+  },
+  {
+    "id": 2,
+    "product": "Wireless Bra",
+    "productType": "bras",
+    "price": 35,
+    "color": "Black",
+    "size": "36D",
+    "imageSrc": "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg",
+    "imageAlt": "Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.",
+    "href": ""
+  },
+  {
+    "id": 3,
+    "product": "Seamless Panties",
+    "productType": "paties",
+    "price": 12,
+    "color": "White",
+    "size": "32D",
+    "imageSrc": "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg",
+    "imageAlt": "Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.",
+    "href": ""
+  }
+]

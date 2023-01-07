@@ -1,57 +1,70 @@
-import React, { useState } from 'react';
-import './App.css';
-import DiscountProcessBar from './components/DiscountProgressBar';
-import { ILineItem, DiscountProgressConfig } from './types';
-
-const bras1: ILineItem = {
-  product: 'T-Shirt Bra',
-  productType: 'bras',
-  price: 55,
-};
-
-const bras2: ILineItem = {
-  product: 'Wireless Bra',
-  productType: 'bras',
-  price: 35,
-};
-
-const panties: ILineItem = {
-  product: 'Seamless Panties',
-  productType: 'paties',
-  price: 12,
-};
+import React, { useState } from "react";
+import storeProducts from "./data/products.json";
+import DiscountProcessBar from "./components/DiscountProgressBar";
+import CartItem from "./components/CartItem";
+import { breakpoints, useShoppingCart } from "./context/ShoppingCartContext";
 
 function App() {
-  const initialValue: ILineItem[] = [];
-  const [lineItems, setLineItems] = useState(initialValue);
+  const { getTotal } = useShoppingCart();
+  const { total, save, discount } = getTotal();
 
-  const subtotal = lineItems.reduce((reducer, item) => reducer + item.price, 0);
-  // This is the current configuration but could change at any point.
-  // the key is the total and the value is the discount apply
-  const config: DiscountProgressConfig = {
-    135: 15,
-    150: 20,
-    200: 30,
-    300: 50,
-  };
-
-  const discountApply = Object.entries(config).reverse().find(([limit, _]) => {
-    return subtotal >= parseInt(limit);
-  })
-  const total = subtotal - (discountApply ? discountApply[1] : 0);
-  const addProduct = (item: ILineItem) => () => setLineItems((prev) => {
-    return [...prev, item];
-  })
   return (
-    <div className="App">
-      <span>Test my component</span>
-      <DiscountProcessBar total={total} lineItems={lineItems} config={config} />
-      <div className="App-total"><span>Subtotal:</span><span>{subtotal}</span></div>
-      <div className="App-total"><span>Total:</span><span>{total}</span></div>
-      <div className="App-button-section">
-        <button onClick={addProduct(bras1)}>Add Bras 1</button>
-        <button onClick={addProduct(bras2)}>Add Bras 2</button>
-        <button onClick={addProduct(panties)}>Add Underwear</button>
+    <div className="mx-auto flex bg-white">
+      <div className="border rounded-md mx-auto p-12">
+        <div className="text-center">
+          <p className="font-bold text-2xl">Build Your Kit & Save</p>
+          <p className="text-lg">
+            Spend ${total}, Save ${save}{" "}
+          </p>
+        </div>
+
+        <DiscountProcessBar
+          actualDiscount={discount}
+          breakpoints={breakpoints}
+        />
+
+        <div className="min-w-80 w-96">
+          {storeProducts.map((product) => (
+            <CartItem key={product.id} product={product} />
+          ))}
+        </div>
+
+        <div className="flex flex-row justify-between items-center">
+          <div className="font-semibold text-xl text-[#2C272D]">
+            Build Your Kit Subtotal
+          </div>
+          <div className="text-xl font-bold my-4">${total} </div>
+        </div>
+
+        <div className="flex flex-row justify-between items-center">
+          <div className="font-semibold text-[#2C272D]">
+            Discount (Spend ${total}, Save ${save})
+          </div>
+          <div className="text-xl text-[#C51D1E] font-bold">-${discount}</div>
+        </div>
+        <div className="mt-4">
+          <button className="bg-[#f00] w-full py-2 text-white rounded-md">
+            <div className="flex flex-row items-center justify-center space-x-2">
+              <div className="font-bold text-lg">CHECKOUT</div>
+              <div className="-mt-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="white"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </button>
+        </div>
       </div>
     </div>
   );
