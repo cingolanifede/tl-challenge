@@ -6,7 +6,7 @@
     "price": 55,
     "color": "Mulberry",
     "size": "36D",
-    "imageSrc": "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg",
+    "imageSrc": "src/assets/t-shirt.png",
     "imageAlt": "Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.",
     "href": ""
   },
@@ -17,7 +17,7 @@
     "price": 35,
     "color": "Black",
     "size": "36D",
-    "imageSrc": "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg",
+    "imageSrc": "src/assets/bra.png",
     "imageAlt": "Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.",
     "href": ""
   },
@@ -28,7 +28,7 @@
     "price": 12,
     "color": "White",
     "size": "32D",
-    "imageSrc": "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg",
+    "imageSrc": "src/assets/panties.png",
     "imageAlt": "Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.",
     "href": ""
   }

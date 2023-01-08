@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import storeProducts from "./data/products.json";
 import DiscountProcessBar from "./components/DiscountProgressBar";
 import CartItem from "./components/CartItem";
@@ -9,19 +8,20 @@ function App() {
   const { total, save, discount } = getTotal();
 
   return (
-    <div className="mx-auto flex bg-white">
+    <div className="mx-auto flex bg-white mt-1">
       <div className="border rounded-md mx-auto p-12">
         <div className="text-center">
           <p className="font-bold text-2xl">Build Your Kit & Save</p>
           <p className="text-lg">
-            Spend ${total}, Save ${save}{" "}
+            Spend ${total}, Save ${discount}{" "}
           </p>
         </div>
-
-        <DiscountProcessBar
-          actualDiscount={discount}
-          breakpoints={breakpoints}
-        />
+        <div className="py-4">
+          <DiscountProcessBar
+            actualDiscount={discount}
+            breakpoints={breakpoints}
+          />
+        </div>
 
         <div className="min-w-80 w-96">
           {storeProducts.map((product) => (
@@ -38,9 +38,13 @@ function App() {
 
         <div className="flex flex-row justify-between items-center">
           <div className="font-semibold text-[#2C272D]">
-            Discount (Spend ${total}, Save ${save})
+            Discount (Spend ${total}, Save ${discount})
           </div>
           <div className="text-xl text-[#C51D1E] font-bold">-${discount}</div>
+        </div>
+        <div className="flex flex-row justify-between items-center">
+          <div className="font-semibold text-xl text-[#2C272D]">Total</div>
+          <div className="text-xl font-bold my-4">${total - discount} </div>
         </div>
         <div className="mt-4">
           <button className="bg-[#f00] w-full py-2 text-white rounded-md">

@@ -3,13 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "@types/jest": "^26.0.15",
-    "@types/node": "^12.0.0",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "typescript": "^4.1.2",
@@ -18,6 +11,7 @@
   "scripts": {
     "start": "vite",
     "build": "tsc && vite build",
+    "test": "vitest",
     "serve": "vite preview"
   },
   "eslintConfig": {
@@ -39,12 +33,22 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/react": "^13.4.0",
+    "@types/node": "^12.0.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/react-test-renderer": "^17.0.2",
     "@vitejs/plugin-react": "^3.0.1",
+    "@vitest/ui": "latest",
     "autoprefixer": "^10.4.13",
+    "happy-dom": "latest",
+    "jsdom": "^21.0.0",
     "postcss": "^8.4.20",
+    "react-test-renderer": "17.0.2",
     "tailwindcss": "^3.2.4",
     "vite": "^4.0.4",
     "vite-plugin-svgr": "^2.4.0",
-    "vite-tsconfig-paths": "^4.0.3"
+    "vite-tsconfig-paths": "^4.0.3",
+    "vitest": "latest"
   }
 }
