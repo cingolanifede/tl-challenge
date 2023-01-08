@@ -86,7 +86,7 @@ const CartItem: React.FunctionComponent<CartItemProps> = (props) => {
                 ) : (
                   <div className="flex items-center justify-between text-sm bg-white mx-2">
                     <div className="flex items-center space-x-2 py-4">
-                      <div className="bg-gray-100 flex flex-row space-x-6 py-1 px-2 rounded-md">
+                      <div className="flex flex-row space-x-6 py-1 px-2 rounded-md border border-grey-500">
                         <button
                           className="font-bold"
                           onClick={() => decreaseCartQuantity(product)}
@@ -96,7 +96,7 @@ const CartItem: React.FunctionComponent<CartItemProps> = (props) => {
                         <input
                           type="number"
                           value={quantity}
-                          className="text-gray-900 bg-gray-100 text-md font-bold rounded-md  focus:border-blue-500 block w-8 text-center"
+                          className="text-gray-900 text-md font-bold rounded-md block w-9 text-center bg-white"
                           disabled={true}
                         />
                         <button
